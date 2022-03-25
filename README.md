@@ -1,1 +1,0 @@
-# luciapicos-problematica-02
