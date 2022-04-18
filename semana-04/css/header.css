@@ -1,0 +1,93 @@
+header{
+    width: 100%;
+}
+.container-header{
+    display: flex;
+    flex-direction: row;
+    background-color: #50A780;
+    width:100%;
+    height: 8%;
+    justify-content:space-between;
+    align-items: center;
+}
+.item-1hm-header{
+    height: 30px;
+    width: 30px;
+    margin-left: 2%;
+}
+.item-2tc-header{
+    display: none;
+}
+.item-3input-header{
+    display: flex;
+    order: 3;
+}
+.item-4input-header{
+    display: none;
+}
+.item-6loupe-header{
+    height: 20px;
+    width: 20px;
+    padding: 2%;
+    margin-left: -15%;
+}
+.item-7button-header{
+    display: flex;
+    width:60%;
+    height: 60%;
+    justify-content: space-between;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+.item-8button-header{
+    background: white;
+    border-radius: 25px;
+    width: 40%;
+}
+.item-9button-header{
+    background: white;
+    border-radius: 25px;
+    width: 40%;
+}
+@media only screen and (min-width: 767px) { 
+    .item-2tc-header{
+        display: flex;
+    }
+    .item-2tc-text-header{
+        color: black;
+        font-size: x-small;
+    }
+    .item-3input-header{
+        display: flex;
+        width:30%;
+        height: 80%;
+        border-radius: 25px;
+        margin-bottom: 2%;
+        margin-top: 2%;
+    }
+    .item-4input-header{
+        display: flex;
+        width:100%;
+        height: 80%;
+        border-radius: 25px;
+        padding-left: 5%;
+        margin-bottom: 2%;
+    }
+    .item-7button-header{
+        display: flex;
+        width:30%;
+        height: 80%;
+        justify-content: space-between;
+        margin-top: 2%;
+        margin-bottom: 2%;
+        margin-right: 2%;
+        order: 3;
+    }
+}    
+@media only screen and (min-width: 1023px) { 
+    .item-2tc-header{
+        display: flex;
+        font-size: large;
+    }
+}
+
