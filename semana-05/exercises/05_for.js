@@ -4,7 +4,7 @@ using a JavaScript for loop to display an alert using each of
 the words.*/
 var array_five=["black","red","green","white","pink"]
 array_five.forEach(element =>{
-    alert(element);
+    alert("exercise 5-a:" + element);
 });
 /*b)To the above array convert the first letter of each word to 
 uppercase and display an alert for each modified word.*/
@@ -14,7 +14,7 @@ M_=0;
 array_five_M_=[];
 for(M_ in array_five){
     array_five_M_.push(array_five[M_].charAt(0).toUpperCase()+array_five[M_].slice(1));
-    alert(array_five_M_[M_]);
+    alert("exercise 5-b:" + array_five_M_[M_]);
 }
 /*c)Create a variable called "sentence" that has an empty string, 
 then run through the array from a) above with a for loop to store 
@@ -27,7 +27,7 @@ L_=0;
 for (L_ in array_five){
     Sentence=Sentence + ',' + array_five[L_];
 }
-alert(Sentence);
+alert("exercise 5-c:" + Sentence);
 console.log(Sentence);
 /*//OTHER OPTIONS (INCORRECT)//
 var array_five, Sentence;
@@ -55,4 +55,4 @@ j=0;
 for (j= 0; j< 10; j++) {
     array_empty.push(j);   
 }
-console.log(array_empty);
+console.log("exercise 5-d:" + array_empty);
