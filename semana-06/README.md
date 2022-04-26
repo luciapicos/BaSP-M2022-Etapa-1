@@ -56,8 +56,6 @@ Running the login.html and employee-signup.html files in a browser.
 O: 
 (link here)
 
-Translated with www.DeepL.com/Translator (free version)
-
 
 
 
