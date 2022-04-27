@@ -43,16 +43,19 @@ header{
     background: white;
     border-radius: 25px;
     width: 40%;
+    height: 80%;
 }
 .item-9button-header{
     background: white;
     border-radius: 25px;
     width: 40%;
+    height: 80%;
 }
 .item-10button-header{
     background: white;
     border-radius: 25px;
-    width: 40%; 
+    width: 40%;
+    height: 80%;
 }
 @media only screen and (min-width: 767px) { 
     .item-2tc-header{
@@ -73,7 +76,7 @@ header{
     .item-4input-header{
         display: flex;
         width:100%;
-        height: 80%;
+        height: 30px;
         border-radius: 25px;
         padding-left: 5%;
         margin-bottom: 2%;
@@ -81,7 +84,7 @@ header{
     .item-7button-header{
         display: flex;
         width:30%;
-        height: 80%;
+        height: 42px;
         justify-content: space-between;
         margin-top: 2%;
         margin-bottom: 2%;

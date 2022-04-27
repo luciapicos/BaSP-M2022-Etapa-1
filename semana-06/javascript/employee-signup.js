@@ -2,7 +2,7 @@ function validateABC(string){
     var abc=false;
     for (var index = 0; index < string.length; index++) {
         var element = string[index];  
-         if (isNaN(element)) {
+         if (!isNaN(element)) {
          abc=true;
          }
     }   
@@ -20,8 +20,8 @@ function validateNoABC(string){
     var noabc=true;
     for (var index = 0; index < string.length; index++) {
         var element = string[index];  
-         if (isNaN(element)) {
-         abc=false;
+         if (!isNaN(element)) {
+         noabc=false;
          }
     }     
     return noabc;
@@ -33,17 +33,14 @@ function validateLenghtfor7(string){
     }      
     return longEnough;
 }  
-    
 window.onload = function(){
 
-    var name = document.getElementById("name")
     var nameError = document.getElementById("nameError")
-    var surnname = document.getElementById("surname")
-    var surnnameError = document.getElementById("surnameError")
+    var userName = document.getElementById("userName")
 
     function validNameBlur(){
-        if(validateABC(name.value)==true || validateLenghtfor3(name.value)==false){
-            console.log(name.value);
+        if(validateABC(userName.value)==true || validateLenghtfor3(userName.value)==false){
+            console.log(userName.value);
           nameError.style.visibility= "visible";
         }
     }
@@ -51,23 +48,34 @@ window.onload = function(){
         console.log("jbdjdj");
         nameError.style.visibility= "hidden";
     }
-    name.addEventListener("focus" , validNameFocus)
-    name.addEventListener("blur" , validNameBlur)
+    userName.addEventListener("focus" , validNameFocus)
+    userName.addEventListener("blur" , validNameBlur)
 
-    }
+    var surname = document.getElementById("surname")
+    var surnameError = document.getElementById("surnameError")
 
-    /*function validSurnameBlur(){
+    function validSurnameBlur(){
         if(validateABC(surname.value)==true || validateLenghtfor3(surname.value)==false){
           surnameError.style.visibility= "visible";
         }
     }
     function validSurnameFocus(){
-        SurnameError.style.visibility= "hidden";
+        surnameError.style.visibility= "hidden";
     }
     surname.addEventListener("focus" , validSurnameFocus)
     surname.addEventListener("blur" , validSurnameBlur)
 
+    var document = document.getElementById("document")
+    var documentError = document.getElementById("documentError")
 
-
-
-
+    function validDocumentBlur(){
+        if(validateNoABC(document.value)==true || validateLenghtfor7(document.value)==false){
+          documentError.style.visibility= "visible";
+        }
+    }
+    function validDocumentFocus(){
+        documentError.style.visibility= "hidden";
+    }
+    document.addEventListener("focus" , validDocumentFocus)
+    document.addEventListener("blur" , validDocumentBlur)
+}
