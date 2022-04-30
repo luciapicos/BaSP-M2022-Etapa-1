@@ -16,8 +16,7 @@
        }
        return abc && num;
     }
-
-
+   
 window.onload = function() {
     var email = document.getElementById("email")
     var password = document.getElementById("password")
@@ -28,7 +27,7 @@ window.onload = function() {
     function validEmailBlur(){
       if(validateEmail(email.value)==false){
         emailError.style.visibility= "visible";
-      }
+        }
     }
     function validEmailFocus(){
             emailError.style.visibility= "hidden";
@@ -37,7 +36,7 @@ window.onload = function() {
     email.addEventListener("blur" , validEmailBlur)
 
     function validPasswordBlur(){
-        if (validatePassword(password.value)==false) {
+        if (!validatePassword(password.value)) {
             passwordError.style.visibility="visible";
         }
     }
@@ -47,5 +46,40 @@ window.onload = function() {
     }
     password.addEventListener("focus", validPasswordFocus)
     password.addEventListener("blur", validPasswordBlur)
+
+    var buttonLogin=document.getElementById("loginB")
+    var invalidMail= "¡Invalid E-mail! \nMust be a valid E-mail format: \nexample@example.ex";
+    var invalidPass= 
+    "¡Invalid Password! \n-Must contain letters and numbers. \n-Must contain at least 8 characters.";
+    
+    function onSubmit(){
+        if (validateEmail(email.value) && validatePassword(password.value)) {
+            var AllOk= "¡Everything is Okay!" + "\nEmail: " + email.value + "\nPassword: " + password.value; 
+            alert(AllOk); 
+        } else {
+            if (!validateEmail(email.value)) {
+                alert (invalidMail);
+            }
+            if (!validatePassword(password.value)) {
+                alert (invalidPass);
+            }
+        }
+        
+    }
+    buttonLogin.addEventListener("click", onSubmit)
+
+    var buttonRememberMe=document.getElementById("rememberMe");
+    
+    function onRememberMe(){
+        if (validateEmail(email.value) && validatePassword(password.value)) {
+            var rememberAlert= "We'll remember this information: " + "\nEmail: " +
+             email.value + "\nPassword: " + password.value; 
+            alert(rememberAlert); 
+        } else {
+            alert("¡Something is wrong! \nCheck your information.")
+        }
+        
+    }
+    buttonRememberMe.addEventListener("click", onRememberMe)
 
 }

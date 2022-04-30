@@ -138,7 +138,7 @@ window.onload = function(){
     var cityError = document.getElementById("cityError")
 
     function validCityBlur(){
-        if (validatePassword(city.value)==false || validateLenghtfor3(city.value)==false){
+        if (validateABC(city.value)==true || validateLenghtfor3(city.value)==false){
             cityError.style.visibility="visible";
         }
     }
@@ -206,11 +206,28 @@ window.onload = function(){
     }
     repeat.addEventListener("focus", validRepeatFocus)
     repeat.addEventListener("blur", validRepeatBlur)
-
-    
-
-
-
-
   
+    var onButtonSignUp = document.getElementById("buttonSignUp")
+
+    function validateAllResults(){
+        if (validateABC(userName.value)==false && validateLenghtfor3(userName.value)==true &&
+        validateABC(surname.value)==false && validateLenghtfor3(surname.value)==true && 
+        validateNoABC(userDocument.value)==false && validateLenghtfor7(userDocument.value)==true && 
+        validateNoABC(phone.value)==false && validateLenghtfor10(phone.value)==true && 
+        validateABC(city.value)==false && validateLenghtfor3(city.value)==true && 
+        validateNoABC(postalcode.value)==false && validateLenghtforBetween4and5(postalcode.value)==true && 
+        validateEmail(email.value)==true && validatePassword(password.value)==true && 
+        validateLenghtfor8(password.value)==true && validatePassword(repeat.value)==true && 
+        validateLenghtfor8(repeat.value)==true){
+            var alertContent= "¡Everything is okay!" + "\nName: " + userName.value + "\nSurname: " + 
+            surname.value + "\nDocument: " + userDocument.value + "\nDate of birth: " + "VOID" +
+            "\nPhone number: " + phone.value +  "\nAdress: " + "VOID" +
+            "\nCity: " + city.value + "\nPostal code: " + postalcode.value +
+            "\nE-mail: " + email.value + "\nPassword: " + password.value;
+            alert(alertContent);
+        } else {
+            alert("¡Somethign is wrong! \nCheck your information.")
+        }
+    }
+    onButtonSignUp.addEventListener("click", validateAllResults)
 }
