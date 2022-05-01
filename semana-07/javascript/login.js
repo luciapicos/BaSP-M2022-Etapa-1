@@ -60,11 +60,11 @@ window.onload = function() {
         } else {
             if (!validateEmail(email.value)) {
                 alert (invalidMail);
-                return false
+            return false;
             }
             if (!validatePassword(password.value)) {
                 alert (invalidPass);
-                return false;
+            return false;
             }    
         }
         
@@ -87,8 +87,8 @@ window.onload = function() {
 
     function serverSend() {
         if (onSubmit()) {
-        fetch('https://basp-m2022-api-rest-server.herokuapp.com/login?email=' +
-            email.value + '&password=' + password.value)
+        fetch("https://basp-m2022-api-rest-server.herokuapp.com/login?email=" +
+            email.value + "&password=" + password.value)
         .then(function (response) {
             return response.json()
         })

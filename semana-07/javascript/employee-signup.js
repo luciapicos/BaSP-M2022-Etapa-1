@@ -225,9 +225,31 @@ window.onload = function(){
             "\nCity: " + city.value + "\nPostal code: " + postalcode.value +
             "\nE-mail: " + email.value + "\nPassword: " + password.value;
             alert(alertContent);
+        return true;
         } else {
             alert("¡Somethign is wrong! \nCheck your information.")
+        return false;    
         }
     }
     onButtonSignUp.addEventListener("click", validateAllResults)
+
+    function serverSendSignUp() {
+        if (validateAllResults()) {
+        fetch("https://basp-m2022-api-rest-server.herokuapp.com/signup?name=" +
+            userName.value + "&surname=" + surname.value + "&document=" + userDocument.value + 
+            "&phone=" + phone.value + "&city=" + city.value + "&postalcode=" + postalcode.value + 
+            "&email=" + email.value + "&password=" + password.value)
+        .then(function (response) {
+            return response.json()
+        })
+        .then(function (data) {
+            console.log(data)
+            alert(data.msg);
+        });  
+        } else {
+            alert("¡Something is wrong! \nCheck your information.");
+        }
+        
+    }
+    onButtonSignUp.addEventListener("click", serverSendSignUp)
 }
