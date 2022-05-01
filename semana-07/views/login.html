@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trackgenix</title>
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/landing.css">
+    <link rel="stylesheet" href="../styles/aside.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+    <link rel="stylesheet" href="../styles/login.css">
+    <script src="../javascript/login.js"></script>
+</head>
+<body>
+    <header class="container-header">
+        <img class="item-1hm-header" src="../Assets/images/image-menu-10.png" alt="image-manu-10"width="25" height="25">
+        
+        <div class="item-2tc-header">
+            <a href="#" class="item-2tc-text-header">Tutorials|Contact</a>
+        </div>
+        <div class="item-3input-header">
+            <input class="item-4input-header" type="text" placeholder="Search">
+            <img class="item-6loupe-header" src="../Assets/images/image 11.jpg" alt="image 11">
+        </div>
+        <div class="item-7button-header">
+            <button class="item-9button-header">
+                <a href="employee-signup.html">SignUp</a>
+            </button>
+            <button class="item-10button-header">
+                <a href="index.html">Home</a>
+            </button>
+        </div>
+    </header>
+    <main>
+        <section class="logo-container">
+            <img class="logo-logo" src="../Assets/images/image-logo-9.jpg" alt="image-logo-9"width="80" height="80">
+            <div class="logo-titles">
+                <h1>TRACKGENIX</h1>
+                <h2>DATA MANAGEMENT</h2>
+            </div>
+        </section> 
+        <form class="LogIn-Form" id="LoginForm" action="LogIn">
+            <p class="LogIn-Title">Log In</p>
+            <div class="LogIn-E-mail">
+                <label class="login1" for="name">E-mail:</label>
+                <input class="login2" type="text" id="email" name="email" 
+                placeholder="Your E-mail">
+                <span class="Error" id="emailError" >The E-mail address is not valid</span>
+            </div>  
+            <div class="LogIn-Password">
+                <label class="login1" for="password">Password</label>
+                <input class="login2" type="password" id="password" name="password" 
+                placeholder="Your password">
+                <span class="Error" id="passwordError" >The password is not valid</span>
+            </div>
+            <div class="CheckBox-Buttons">
+                <label class="checkbox"> <input type="checkbox" id="rememberMe" value="RMP">Remember Password</label>
+                <a  class="Forgot-Button" id="Forgot" href="">Forgot your password?</a>
+            </div>  
+            <div class="LogIn-Button-Container">
+                <button class="LogIn-Button" id="loginB">LogIn</button>
+            </div>
+        </form> 
+    </main>>
+    <footer>
+            <div class="footer-images-container">
+                <a href="https://uy.linkedin.com/">
+                    <img src="../Assets/images/image 12.png" alt="image 12"width="40" height="40">
+                </a>
+                <a href="https://twitter.com/">
+                    <img src="../Assets/images/image 13.png" alt="image 13"width="40" height="40">
+                </a>
+                <a href="https://www.facebook.com/">
+                    <img src="../Assets/images/image 14.png" alt="image 14"width="40" height="40">
+                </a>
+                <a href="https://github.com/">
+                    <img src="../Assets/images/image 15.png" alt="image 15"width="30" height="30">
+                </a>
+                <a href="https://www.instagram.com/">
+                    <img src="../Assets/images/image 16.png" alt="image 16"width="30" height="30">
+                </a>
+            </div>
+            <div class="footer-paragraph-container">
+                <p>Montevideo, Uruguay</p>
+                <p>Copyright 2022. All rights reserved.</p>
+            </div>
+    </footer>
+</body>
+</html>

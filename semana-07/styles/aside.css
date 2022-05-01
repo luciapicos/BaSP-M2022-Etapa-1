@@ -1,0 +1,87 @@
+.sidebar{
+    display: none;
+}
+@media only screen and (min-width: 767px) { 
+    .sidebar{
+    display: none;
+    }   
+}
+@media only screen and (min-width: 1023px) { 
+    .sidebar{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 1000px;
+        background: linear-gradient(#50A780 85%,white);
+    }
+    .sidebar-menu{
+        border-bottom:2px solid #ED2626 ;
+        width: 70%;
+        margin-bottom: 25px;
+        padding-bottom: 20px;
+        margin-left: 15px;
+        margin-top: 20px;
+    }
+    .sidebar-menu-item{
+        border-bottom:1px solid #CECACA;
+        width: 70%;
+        margin-bottom: 25px;
+        vertical-align: middle;
+        padding-bottom: 20px;
+        margin-left: 15px;
+    }
+    .sidebar-menu2{
+        border-bottom:2px solid #ED2626 ;
+        width: 70%;
+        margin-bottom: 25px;
+        vertical-align: middle;
+        padding-bottom: 10px;
+        margin-top: 80px;
+        margin-left: 15px;
+    }
+    .sidebar-contact-info{
+        display: flex;
+        flex-direction: column;
+        font-size: small;
+        margin-bottom: 200px;
+        text-align: left;
+        margin-right: 50px;
+        padding-left: 15px;
+    }
+    .sidebar-contact-info1{
+        display: flex;
+        flex-direction: row;
+        padding-left: 15px;
+    }
+    .sidebar-img-ci-1{
+        width: 20px;
+    }
+    .sidebar-p-ci-1{
+        width: 70%;
+        margin-bottom: 10px;
+        font-size: smaller;
+        padding-left: 15px;
+    }
+    .sidebar-contact-info2{
+        display: flex;
+        flex-direction: row;
+        padding-left: 15px;
+    }
+    .sidebar-img-ci-{
+        width: 20px;
+    }
+    .sidebar-p-ci-2{
+        width: 70%;
+        margin-bottom: 10px;
+        font-size: smaller;
+        padding-left: 15px;
+    }
+    .sidebar-get-info-button{
+        margin-top: 200px;
+        margin-left: 35px;
+        background: #49A37B;
+        border: 1px solid #000000;
+        border-radius: 5px;
+        color: white;
+    }
+}
