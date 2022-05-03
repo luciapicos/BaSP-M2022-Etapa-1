@@ -73,7 +73,6 @@ function validatePassword(string){
     return abc && num;
 } 
 
-
 window.onload = function(){
 
     var nameError = document.getElementById("nameError")
@@ -120,11 +119,29 @@ window.onload = function(){
     userDocument.addEventListener("focus" , validDocumentFocus)
     userDocument.addEventListener("blur" , validDocumentBlur)
 
+    var adress = getElementById("adress")
+    var adressError = getElementById("adressError")
+    
+    function validAdressBlur(){
+        if(validateLenghtfor3(adress.value)==false || validatePassword(adress.value)==false){
+            adressError.style.visibility= "visible";
+        }
+        if (address.value.indexOf(" ")<2) { 
+            adressError.style.visibility= "visible";  
+        }
+    }
+    function validAdressFocus(){
+        adressError.style.visibility= "hidden";
+    }
+    adress.addEventListener("focus" , validAdressFocus)
+    adressError.addEventListener("blur" , validAdressBlur)
+    
+
     var phone = document.getElementById("phone")
     var phoneError = document.getElementById("phoneError")
 
     function validPhoneBlur(){
-        if(validateNoABC(phone.value)==true || validateLenghtfor10(phone.value)==false){
+        if(validateNoABC(phone.value)==false || validateLenghtfor10(phone.value)==false){
           phoneError.style.visibility= "visible";
         }
     }
@@ -175,7 +192,7 @@ window.onload = function(){
             emailError.style.visibility= "hidden";
     }
     email.addEventListener("focus" , validEmailFocus)
-    email.addEventListener("blur" , validEmailBlur)
+    emailError.addEventListener("blur" , validEmailBlur)
 
     var password = document.getElementById("password")
     var passwordError = document.getElementById("passwordError")
