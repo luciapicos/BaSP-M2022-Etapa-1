@@ -95,12 +95,15 @@ window.onload = function() {
         .then(function (data) {
             console.log(data)
             alert(data.msg);
-        });  
+        }).catch(function (error) {
+            console.log(error)
+            alert (error.msg);
+        });   
         } else {
             alert("¡Something is wrong! \nCheck your information.");
         }
         
     }
     buttonLogin.addEventListener("click", serverSend)
-    
+
 }

@@ -119,29 +119,30 @@ window.onload = function(){
     userDocument.addEventListener("focus" , validDocumentFocus)
     userDocument.addEventListener("blur" , validDocumentBlur)
 
-    var adress = getElementById("adress")
-    var adressError = getElementById("adressError")
+    var userAdress = document.getElementById("adress")
+    var adressError = document.getElementById("adressError")
+    
     
     function validAdressBlur(){
-        if(validateLenghtfor3(adress.value)==false || validatePassword(adress.value)==false){
+        if(validateLenghtfor3(userAdress.value)==false || validatePassword(userAdress.value)==false){
             adressError.style.visibility= "visible";
         }
-        if (address.value.indexOf(" ")<2) { 
-            adressError.style.visibility= "visible";  
+        if (userAdress.value.indexOf(" ")==-1) {
+            adressError.style.visibility= "visible";
         }
     }
     function validAdressFocus(){
         adressError.style.visibility= "hidden";
     }
-    adress.addEventListener("focus" , validAdressFocus)
-    adressError.addEventListener("blur" , validAdressBlur)
+    userAdress.addEventListener("focus" , validAdressFocus)
+    userAdress.addEventListener("blur" , validAdressBlur)
     
 
     var phone = document.getElementById("phone")
     var phoneError = document.getElementById("phoneError")
 
     function validPhoneBlur(){
-        if(validateNoABC(phone.value)==false || validateLenghtfor10(phone.value)==false){
+        if(validateNoABC(phone.value)==true|| validateLenghtfor10(phone.value)==false){
           phoneError.style.visibility= "visible";
         }
     }
@@ -192,7 +193,7 @@ window.onload = function(){
             emailError.style.visibility= "hidden";
     }
     email.addEventListener("focus" , validEmailFocus)
-    emailError.addEventListener("blur" , validEmailBlur)
+    email.addEventListener("blur" , validEmailBlur)
 
     var password = document.getElementById("password")
     var passwordError = document.getElementById("passwordError")
@@ -230,17 +231,18 @@ window.onload = function(){
         if (validateABC(userName.value)==false && validateLenghtfor3(userName.value)==true &&
         validateABC(surname.value)==false && validateLenghtfor3(surname.value)==true && 
         validateNoABC(userDocument.value)==false && validateLenghtfor7(userDocument.value)==true && 
-        validateNoABC(phone.value)==false && validateLenghtfor10(phone.value)==true && 
-        validateABC(city.value)==false && validateLenghtfor3(city.value)==true && 
-        validateNoABC(postalcode.value)==false && validateLenghtforBetween4and5(postalcode.value)==true && 
-        validateEmail(email.value)==true && validatePassword(password.value)==true && 
-        validateLenghtfor8(password.value)==true && validatePassword(repeat.value)==true && 
-        validateLenghtfor8(repeat.value)==true){
+        validateLenghtfor3(userAdress.value)==true && validatePassword(userAdress.value)==true && 
+        validateNoABC(phone.value)==false && 
+        validateLenghtfor10(phone.value)==true && validateABC(city.value)==false && 
+        validateLenghtfor3(city.value)==true && validateNoABC(postalcode.value)==false && 
+        validateLenghtforBetween4and5(postalcode.value)==true && validateEmail(email.value)==true && 
+        validatePassword(password.value)==true && validateLenghtfor8(password.value)==true && 
+        validatePassword(repeat.value)==true && validateLenghtfor8(repeat.value)==true){
             var alertContent= "¡Everything is okay!" + "\nName: " + userName.value + "\nSurname: " + 
             surname.value + "\nDocument: " + userDocument.value + "\nDate of birth: " + "VOID" +
             "\nPhone number: " + phone.value +  "\nAdress: " + "VOID" +
             "\nCity: " + city.value + "\nPostal code: " + postalcode.value +
-            "\nE-mail: " + email.value + "\nPassword: " + password.value;
+            "\nE-mail: " + email.value + "\nPassword: " + password.value + "\nAdress: " + userAdress.value;
             alert(alertContent);
         return true;
         } else {
@@ -253,15 +255,19 @@ window.onload = function(){
     function serverSendSignUp() {
         if (validateAllResults()) {
         fetch("https://basp-m2022-api-rest-server.herokuapp.com/signup?name=" +
-            userName.value + "&surname=" + surname.value + "&document=" + userDocument.value + 
-            "&phone=" + phone.value + "&city=" + city.value + "&postalcode=" + postalcode.value + 
-            "&email=" + email.value + "&password=" + password.value)
+            userName.value + "&lastName=" + surname.value + "&dni=" + userDocument.value + 
+            "&phone=" + phone.value + "&address" + userAdress.value +  "&city=" + city.value + "&zip=" + 
+            postalcode.value + "&email=" + email.value + "&password=" + password.value)
         .then(function (response) {
             return response.json()
         })
         .then(function (data) {
             console.log(data)
             alert(data.msg);
+            saveInLocalStorage()
+        }).catch(function (error) {
+            console.log(error)
+            alert (error.msg);
         });  
         } else {
             alert("¡Something is wrong! \nCheck your information.");
@@ -269,4 +275,17 @@ window.onload = function(){
         
     }
     onButtonSignUp.addEventListener("click", serverSendSignUp)
+
+    function saveInLocalStorage() {
+        localStorage.setItem("name" , userName.value);
+        localStorage.setItem("surname" , surname.value);
+        localStorage.setItem("document" , userDocument.value);
+        localStorage.setItem("phone" , phone.value);
+        localStorage.setItem("adress" , adress.value);
+        localStorage.setItem("postalcode" , postalcode.value);
+        localStorage.setItem("e-mail" , email.value);
+        localStorage.setItem("city" , city.value);
+        localStorage.setItem("password" , password.value);
+    }
+    
 }
